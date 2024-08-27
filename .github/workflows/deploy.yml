@@ -20,8 +20,8 @@ jobs:
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
-      FIRST: ${{ secrets.FIRST }}
-    environment: ${{ inputs.environment }}
+      FIRST: ${{ secrets.FIRST:0:4 }}
+    environment: ${{ github.event_name == 'push' && 'testing' || inputs.environment }}
     runs-on: ubuntu-latest
     steps:
       - name: Print environment name
