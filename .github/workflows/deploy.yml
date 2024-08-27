@@ -30,9 +30,6 @@ jobs:
         run: echo "variable is $FIRST_VARIABLE"
       - name: Print environment variable
         run: echo "event is  ${{ github.event_name }}"
-  one:
-    runs-on: ubuntu-latest
-    steps:
       - name: "Echo in file"
         env:
           SECRETS_VARS: ${{ toJson(secrets) }}
