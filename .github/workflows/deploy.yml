@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print environment name
-        run: echo "environment is ${{ github.event.inputs.environment }} / ${{ inputs.environment }}"
+        run: echo "environment is ${{ job.environment }}"
       - name: Print environment variable
         run: echo "Secret is  ${{ env.FIRST }}"
       - name: Print environment variable
