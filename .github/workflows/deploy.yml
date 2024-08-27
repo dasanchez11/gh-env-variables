@@ -27,7 +27,7 @@ jobs:
       - name: Print environment name
         run: echo "environment is ${{ job.environment }}"
       - name: Print environment variable
-        run: echo "Secret is  ${{ env.FIRST }}"
+        run: echo "variable is $FIRST_VARIABLE"
       - name: Print environment variable
         run: echo "event is  ${{ github.event_name }}"
   deploy:
