@@ -1,5 +1,12 @@
 name: Deployment
 on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: environment
+        description: Select the environment
+        required: true
+        default: staging
   push:
     branches:
       - main
@@ -16,6 +23,8 @@ jobs:
     environment: testing
     runs-on: ubuntu-latest
     steps:
+      - name: Print environment name
+        run: echo "environment is ${{ github.event.inputs.environment }} / ${{ inputs.environment }}"
       - name: Get Code
         uses: actions/checkout@v3
       - name: Cache dependencies
