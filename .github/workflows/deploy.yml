@@ -28,6 +28,8 @@ jobs:
         run: echo "environment is ${{ github.event.inputs.environment }} / ${{ inputs.environment }}"
       - name: Print environment variable
         run: echo "Secret is  ${{ env.FIRST }}"
+      - name: Print environment variable
+        run: echo "event is  ${{ github.event_name }}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
